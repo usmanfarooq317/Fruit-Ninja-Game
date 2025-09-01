@@ -1,7 +1,6 @@
-```markdown
-# Ping Pong Go!
+# Block Breaker
 
-Ping Pong Go! is a Breakout-style table tennis game built with React, TypeScript, Tailwind CSS, and HTML5 Canvas. It features neon graphics, mobile-responsive design, and five challenging levels with unique block placements. Players control a paddle to hit a ball, destroy blocks, and progress through levels, aiming for a high score and top rating.
+Block Breaker is a Breakout-style arcade game built with React, TypeScript, Tailwind CSS, and HTML5 Canvas. It features neon graphics, mobile-responsive design, and five challenging levels with unique block placements. Players control a paddle to hit a ball, destroy blocks, and progress through levels, aiming for a high score and top rating.
 
 ## Features
 - **Gameplay**: Control a paddle at the bottom to hit a ball and destroy blocks at the top. Score +1 for paddle hits, +10 for each block destroyed.
@@ -20,5 +19,5 @@ Ping Pong Go! is a Breakout-style table tennis game built with React, TypeScript
 ## Installation
 1. **Clone the Repository** (or create a new folder):
    ```bash
-   mkdir ping-pong-go
-   cd ping-pong-go
+   mkdir block-breaker
+   cd block-breaker

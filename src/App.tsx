@@ -1,4 +1,4 @@
-import PingPongGoGame from '../src/components/PingPongGoGame';
+import PingPongGoGame from './components/BlockBreakerGame';
 
 function App() {
   return (

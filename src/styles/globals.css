@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.neon-glow {
+  box-shadow: 0 0 10px hsl(193, 76%, 56%), 0 0 20px hsl(271, 81%, 56%);
+}
+
+.bg-gaming-dark {
+  background-color: hsl(220, 13%, 8%);
+}
+
+.text-gaming-cyan {
+  color: hsl(193, 76%, 56%);
+}
+
+.text-gaming-purple {
+  color: hsl(271, 81%, 56%);
+}

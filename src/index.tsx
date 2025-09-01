@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './styles/globals.css';
-import App from './App';
+import { createRoot } from 'react-dom/client';
+import BikeRacingGame from './components/FruitNinjaGame';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  createRoot(rootElement).render(
+    <React.StrictMode>
+      <BikeRacingGame />
+    </React.StrictMode>
+  );
+}

@@ -1,23 +1,34 @@
-# Block Breaker
+# 🥷 Fruit Ninja Game
 
-Block Breaker is a Breakout-style arcade game built with React, TypeScript, Tailwind CSS, and HTML5 Canvas. It features neon graphics, mobile-responsive design, and five challenging levels with unique block placements. Players control a paddle to hit a ball, destroy blocks, and progress through levels, aiming for a high score and top rating.
+Fruit Ninja is a **React + TypeScript** clone of the classic arcade game, built with modern web technologies.  
+Players slice flying fruits while avoiding bombs, chaining combos for higher scores in a smooth 60 FPS canvas-powered experience.
 
-## Features
-- **Gameplay**: Control a paddle at the bottom to hit a ball and destroy blocks at the top. Score +1 for paddle hits, +10 for each block destroyed.
-- **Levels**:
-  - **Level 1**: 4x8 grid of blocks (32 blocks).
-  - **Level 2**: Checkerboard pattern (16 blocks, alternating).
-  - **Level 3**: Triangle pyramid (15 blocks, centered).
-  - **Level 4**: Scattered random blocks (15 blocks, spread out).
-  - **Level 5**: Moving blocks (5 blocks oscillating horizontally, toughest).
-- **Progression**: Clear all blocks to advance to the next level. Ball speed increases slightly each level.
-- **Win/Game Over**: Win by clearing Level 5; game over if the ball passes the paddle.
-- **Scoring**: Cumulative score across levels, saved high score in localStorage, rating (A-F) based on score.
-- **Responsive**: Canvas scales to `min(90vw, 400px)` width, proportional height, with touch/mouse controls.
-- **UI**: Neon-styled interface with gradient background, glowing paddle/ball, and Shadcn UI buttons (Start, Pause/Resume, Reset).
+![Fruit Ninja Game Preview](./public/preview.png)
 
-## Installation
-1. **Clone the Repository** (or create a new folder):
-   ```bash
-   mkdir block-breaker
-   cd block-breaker
+---
+
+## ✨ Features
+
+- ⚔️ **Gameplay**: Click or drag to slice fruits with realistic cutting mechanics
+- 🍎 **Fruit Types** with different point values:
+  - Apple: 10 pts
+  - Orange: 15 pts
+  - Watermelon: 20 pts
+  - Pineapple: 25 pts
+  - Strawberry: 30 pts
+- 💣 **Bombs**: Instant game over if sliced
+- ❤️ **Lives**: Start with 3, lose one for each missed fruit
+- 🎯 **Combos**: Slice multiple fruits quickly for score multipliers
+- 🌌 **Visual Effects**: Slice trails, shadows, glowing gradients
+- 📱 **Responsive Design**: Scales to mobile and desktop screens
+- 🏆 **High Score Tracking** with persistent storage
+- 🕹️ **Difficulty Scaling**: Faster spawns, more bombs as time goes on
+
+---
+
+## 🚀 Installation
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/fruit-ninja-game.git
+cd fruit-ninja-game

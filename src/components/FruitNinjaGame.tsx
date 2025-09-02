@@ -13,17 +13,17 @@ const FRUIT_SPAWN_RATE = 60;
 const BOMB_SPAWN_CHANCE = 0.15;
 const INITIAL_LIVES = 3;
 
-// Fruit types
+// Fruit types with emoji representations
 const FRUIT_TYPES = [
-  { name: 'Apple', radius: 20, color: 'hsl(0, 100%, 50%)', points: 10 },
-  { name: 'Orange', radius: 22, color: 'hsl(30, 100%, 50%)', points: 15 },
-  { name: 'Watermelon', radius: 25, color: 'hsl(120, 100%, 25%)', points: 20 },
-  { name: 'Pineapple', radius: 24, color: 'hsl(50, 100%, 50%)', points: 25 },
-  { name: 'Strawberry', radius: 18, color: 'hsl(340, 100%, 60%)', points: 30 },
+  { name: 'Apple', radius: 20, emoji: '🍎', points: 10 },
+  { name: 'Orange', radius: 22, emoji: '🍊', points: 15 },
+  { name: 'Watermelon', radius: 25, emoji: '🍉', points: 20 },
+  { name: 'Pineapple', radius: 24, emoji: '🍍', points: 25 },
+  { name: 'Strawberry', radius: 18, emoji: '🍓', points: 30 },
 ];
 
-// Bomb type
-const BOMB_TYPE = { name: 'Bomb', radius: 22, color: 'hsl(0, 0%, 20%)', points: 0 };
+// Bomb type with emoji
+const BOMB_TYPE = { name: 'Bomb', radius: 22, emoji: '💣', points: 0 };
 
 interface Fruit {
   x: number;
@@ -124,35 +124,23 @@ const FruitNinjaGame: React.FC = () => {
 
     // Draw fruits
     fruitsRef.current.forEach(fruit => {
+      const type = fruit.type === -1 ? BOMB_TYPE : FRUIT_TYPES[fruit.type];
+      ctx.save();
+      ctx.translate(fruit.x, fruit.y);
+      ctx.rotate(fruit.rotation);
+      
+      // Set font for emoji rendering
+      ctx.font = `${fruit.radius * 2 * scale}px Arial`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      
       if (fruit.sliced) {
-        // Draw fruit halves
-        const type = fruit.type === -1 ? BOMB_TYPE : FRUIT_TYPES[fruit.type];
-        ctx.save();
-        ctx.translate(fruit.x, fruit.y);
-        ctx.rotate(fruit.rotation);
-        
-        // Left half
-        ctx.fillStyle = type.color;
-        ctx.beginPath();
-        ctx.arc(-fruit.radius * 0.5, 0, fruit.radius, Math.PI / 2, Math.PI * 1.5);
-        ctx.fill();
-        
-        // Right half
-        ctx.beginPath();
-        ctx.arc(fruit.radius * 0.5, 0, fruit.radius, Math.PI * 1.5, Math.PI / 2);
-        ctx.fill();
-        
-        ctx.restore();
+        // Draw fruit halves with emoji
+        ctx.fillText(type.emoji, -fruit.radius * 0.5, 0);
+        ctx.fillText(type.emoji, fruit.radius * 0.5, 0);
       } else {
-        // Draw whole fruit
-        const type = fruit.type === -1 ? BOMB_TYPE : FRUIT_TYPES[fruit.type];
-        ctx.fillStyle = type.color;
-        ctx.save();
-        ctx.translate(fruit.x, fruit.y);
-        ctx.rotate(fruit.rotation);
-        ctx.beginPath();
-        ctx.arc(0, 0, fruit.radius, 0, Math.PI * 2);
-        ctx.fill();
+        // Draw whole fruit with emoji
+        ctx.fillText(type.emoji, 0, 0);
         
         // Draw bomb fuse if it's a bomb
         if (fruit.type === -1) {
@@ -161,9 +149,9 @@ const FruitNinjaGame: React.FC = () => {
           ctx.arc(-fruit.radius * 0.6, -fruit.radius * 0.6, fruit.radius * 0.2, 0, Math.PI * 2);
           ctx.fill();
         }
-        
-        ctx.restore();
       }
+      
+      ctx.restore();
     });
 
     // Draw slice trail while dragging
